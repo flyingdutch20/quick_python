@@ -4,11 +4,11 @@
 # In this lab the task is to read an excerpt of the first chapter of Moby Dick, make sure that everything is one case, remove all punctuation, and write the words one per line to a second file. Again, since we haven’t yet covered reading and writing files, the code for those operations is supplied below.
 # ```
 
-punct = str.maketrans("!.,:;-?","       ")
+punct = str.maketrans("","","!.,:;-?")
 with open("exercise_answers/moby_01.txt") as infile, open("moby_01_clean.txt", "w") as outfile:
      for line in infile:
-         line = line.lower()                # make all one case
-         line = line.translate(punct)       # remove punctuation
-         split = line.split()               # split into words
-         cleaned_words = " ".join(split)    # write all words for line
-         outfile.write(cleaned_words + " ")
+         line = line.lower()                        # make all one case
+         line = line.translate(punct)               # remove punctuation
+         split = line.split()                       # split into words
+         cleaned_words = "\n".join(split) + "\n"    # write all words for line
+         outfile.write(cleaned_words)
