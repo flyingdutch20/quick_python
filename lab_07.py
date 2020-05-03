@@ -4,7 +4,7 @@ wordcount = {}
 with open("moby_01_clean.txt") as infile:
     for word in infile:
         word = word.strip()
-        if len(word) > 0:
+        if word:
             wordcount[word] = wordcount.get(word, 0) + 1
 
 print("*** sorted by word ***")

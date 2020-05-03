@@ -10,5 +10,6 @@ with open("exercise_answers/moby_01.txt") as infile, open("moby_01_clean.txt", "
          line = line.lower()                        # make all one case
          line = line.translate(punct)               # remove punctuation
          split = line.split()                       # split into words
-         cleaned_words = "\n".join(split) + "\n"    # write all words for line
-         outfile.write(cleaned_words)
+         if split:                                  # if not empty
+             cleaned_words = "\n".join(split) + "\n"    # write all words for line
+             outfile.write(cleaned_words)
