@@ -1,7 +1,7 @@
 #open moby_clean and count the words
 
 wordcount = {}
-with open("moby_01_clean.txt") as infile:
+with open("output/moby_01_clean.txt") as infile:
     for word in infile:
         word = word.strip()
         if word:

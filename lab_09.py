@@ -1,4 +1,6 @@
 #lab_6 refactored into functions
+import os
+
 def output_words(infile, outfile):
     punct = str.maketrans("","","!.,:;-?")
     with open(infile) as infile, open(outfile, "w") as outfile:
@@ -10,7 +12,7 @@ def output_words(infile, outfile):
                 cleaned_words = "\n".join(split) + "\n"    # write all words for line
                 outfile.write(cleaned_words)
 
-output_words("exercise_answers/moby_01.txt", "moby_01_clean.txt")
+output_words("exercise_answers/moby_01.txt", "output/moby_01_clean.txt")
 
 
 # lab_07 refactored into functions
@@ -40,8 +42,10 @@ def print_wordcount_more_than_once(dict_of_words):
             print("The word '{0}' occurs {1} times in the list".format(word[0],word[1]))
 
 def lab_07(infile):
-    output_words(infile, "moby_01_clean.txt")
-    my_dict = count_words("moby_01_clean.txt")
+    if not os.path.exists("output"):
+        os.mkdir("output")
+    output_words(infile, "output/moby_01_clean.txt")
+    my_dict = count_words("output/moby_01_clean.txt")
     print_wordcount_by_word(my_dict)
     print_wordcount_more_than_once(my_dict)
 
