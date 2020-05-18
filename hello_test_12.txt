@@ -1,0 +1,2 @@
+hello first line
+I am the amended text at the end of the file on a new line
